@@ -1,0 +1,13 @@
+.*.swp
+.*.swo
+
+*.xm4fg
+package/
+lib/
+*.mak
+
+.dlls
+.interfaces
+.executables
+.libraries
+.libraries,m4fg
