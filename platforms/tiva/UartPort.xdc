@@ -1,0 +1,42 @@
+package platforms.tiva;
+
+module UartPort {
+    metaonly readonly config UInt NUM_PORTS = 2;
+
+    // Human-readable map used in constructing UartPort state (datasheet p892)
+    metaonly readonly config Any uartGpioPorts = [
+        {letter: 'A', rxPin: 0, txPin: 1}, // UART 0
+        {letter: 'C', rxPin: 4, txPin: 5}, // UART 1
+     // {letter: 'B', rxPin: 0, txPin: 1}, // UART 1 (alternative)
+        {letter: 'D', rxPin: 6, txPin: 7}, // UART 2
+        {letter: 'C', rxPin: 6, txPin: 7}, // UART 3
+        {letter: 'C', rxPin: 4, txPin: 5}, // UART 4
+        {letter: 'E', rxPin: 4, txPin: 5}, // UART 5
+        {letter: 'D', rxPin: 4, txPin: 5}, // UART 6
+        {letter: 'E', rxPin: 0, txPin: 1}, // UART 7
+    ];
+
+    struct PortInfo {
+        UInt32 base;
+        UInt32 periph;
+        UInt32 gpioPeriph;
+        UInt32 gpioBase;
+        UInt32 gpioPins;
+        UInt32 pinAssignRx;
+        UInt32 pinAssignTx;
+        UInt32 udmaChanTx;
+        UInt32 udmaChanRx;
+    };
+
+  instance:
+    create(UInt portIdx);
+
+    @DirectCall
+    /* const */ PortInfo *getInfo();
+
+  internal:
+
+    struct Instance_State {
+        /* const */ PortInfo portInfo;
+    };
+}

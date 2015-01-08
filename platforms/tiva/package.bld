@@ -1,1 +1,11 @@
 var Build = xdc.useModule('xdc.bld.BuildEnvironment');
+
+var PROFILE = "debug";
+
+for each (var targ in Build.targets) {
+    var libAttrs = {
+        profile: PROFILE,
+    };
+    var lib = Pkg.addLibrary("lib/" + Pkg.name, targ)
+    lib.addObjects(["UartPort.c"], libAttrs);
+}
