@@ -6,6 +6,13 @@ for each (var targ in Build.targets) {
     var libAttrs = {
         profile: PROFILE,
     };
+
+    var srcs = [
+        "UartPort.c",
+        "GpioPeriph.c",
+        "GpioPort.c",
+    ];
+
     var lib = Pkg.addLibrary("lib/" + Pkg.name, targ)
-    lib.addObjects(["UartPort.c"], libAttrs);
+    lib.addObjects(srcs, libAttrs);
 }

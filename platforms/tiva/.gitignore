@@ -13,3 +13,5 @@ lib/
 .libraries,m4fg
 
 UartPort.h
+GpioPeriph.h
+GpioPort.h
