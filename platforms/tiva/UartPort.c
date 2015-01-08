@@ -2,8 +2,8 @@
 
 #include "package/internal/UartPort.xdc.h"
 
-/* const */ UartPort_PortInfo * UartPort_getInfo(UartPort_Object *obj)
+/* const */ UartPort_Info * UartPort_getInfo(UartPort_Object *obj)
 {
-    return &obj->portInfo;
+    return &obj->info;
 }
 

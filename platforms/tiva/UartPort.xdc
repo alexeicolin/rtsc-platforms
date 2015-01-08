@@ -16,7 +16,7 @@ module UartPort {
         {letter: 'E', rxPin: 0, txPin: 1}, // UART 7
     ];
 
-    struct PortInfo {
+    struct Info {
         UInt32 base;
         UInt32 periph;
         UInt32 gpioPeriph;
@@ -32,11 +32,11 @@ module UartPort {
     create(UInt portIdx);
 
     @DirectCall
-    /* const */ PortInfo *getInfo();
+    /* const */ Info *getInfo();
 
   internal:
 
     struct Instance_State {
-        /* const */ PortInfo portInfo;
+        /* const */ Info info;
     };
 }

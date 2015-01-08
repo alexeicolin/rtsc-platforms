@@ -12,7 +12,7 @@ function instance$static$init(obj, portIdx, params, mod)
               "is outside of range of number of ports (" + mod.NUM_PORTS + ")";
 
     var gpioPort = mod.uartGpioPorts[portIdx];
-    obj.portInfo = {
+    obj.info = {
         base:        PlatformInfo['UART' + portIdx + '_BASE'],
         periph:      PlatformInfo['SYSCTL_PERIPH_UART' + portIdx],
         udmaChanTx:  PlatformInfo['UDMA_CHANNEL_UART' + portIdx + 'TX'],
