@@ -14,8 +14,6 @@ function instance$static$init(obj, adcIdx, seqIdx, params, mod)
 
     var adcBase = PlatformInfo['ADC' + adcIdx + '_BASE'];
 
-    // TODO: this should not be in PlatformInfo (since it's not in the
-    // headers), there should be an explicit map in this module.
     var dmaChanNum = PlatformInfo[
                         'UDMA_CHANNEL_NUM_ADC_' + adcIdx + '_' + seqIdx];
 
