@@ -3,5 +3,8 @@ package platforms.tiva {
     module UartPort;
     module GpioPeriph;
     module GpioPort;
+    module Adc;
+    module AdcSeq;
+    module AdcChan;
 };
 

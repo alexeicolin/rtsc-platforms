@@ -11,6 +11,9 @@ for each (var targ in Build.targets) {
         "UartPort.c",
         "GpioPeriph.c",
         "GpioPort.c",
+        "Adc.c",
+        "AdcSeq.c",
+        "AdcChan.c",
     ];
 
     var lib = Pkg.addLibrary("lib/" + Pkg.name, targ)
