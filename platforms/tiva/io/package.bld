@@ -16,6 +16,7 @@ for each (var targ in Build.targets) {
 
     var srcs = [
         "Leds.c",
+        "Console.c",
     ];
 
     var lib = Pkg.addLibrary("lib/" + Pkg.name, targ)
