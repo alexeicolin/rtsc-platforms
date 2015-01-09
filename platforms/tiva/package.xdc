@@ -6,5 +6,6 @@ package platforms.tiva {
     module Adc;
     module AdcSeq;
     module AdcChan;
+    module GpTimer;
 };
 

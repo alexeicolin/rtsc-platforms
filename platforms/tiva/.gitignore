@@ -18,3 +18,4 @@ GpioPort.h
 Adc.h
 AdcSeq.h
 AdcChan.h
+GpTimer.h
