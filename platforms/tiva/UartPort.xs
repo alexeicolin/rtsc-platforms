@@ -1,8 +1,10 @@
 var PlatformInfo;
+var GpioPort;
 
 function module$meta$init()
 {
     PlatformInfo = xdc.useModule('platforms.tiva.PlatformInfo');
+    GpioPort = xdc.useModule('platforms.tiva.GpioPort');
 }
 
 function instance$static$init(obj, portIdx, params, mod)
@@ -15,12 +17,11 @@ function instance$static$init(obj, portIdx, params, mod)
     obj.info = {
         base:        PlatformInfo['UART' + portIdx + '_BASE'],
         periph:      PlatformInfo['SYSCTL_PERIPH_UART' + portIdx],
+        intNum:      PlatformInfo['INT_UART' + portIdx],
         udmaChanTx:  PlatformInfo['UDMA_CHANNEL_UART' + portIdx + 'TX'],
         udmaChanRx:  PlatformInfo['UDMA_CHANNEL_UART' + portIdx + 'RX'],
-        gpioPeriph:  PlatformInfo['SYSCTL_PERIPH_GPIO' + gpioPort.letter],
-        gpioBase:    PlatformInfo['GPIO_PORT' + gpioPort.letter + '_BASE'],
-        gpioPins:    (PlatformInfo['GPIO_PIN_' + gpioPort.txPin] |
-                      PlatformInfo['GPIO_PIN_' + gpioPort.rxPin]),
+        rxPin: GpioPort.create(gpioPort.letter, gpioPort.rxPin),
+        txPin: GpioPort.create(gpioPort.letter, gpioPort.txPin),
         pinAssignRx: PlatformInfo['GPIO_P' + gpioPort.letter + gpioPort.rxPin +
                                   '_U' + portIdx + 'RX'],
         pinAssignTx: PlatformInfo['GPIO_P' + gpioPort.letter + gpioPort.txPin +

@@ -19,9 +19,9 @@ module UartPort {
     struct Info {
         UInt32 base;
         UInt32 periph;
-        UInt32 gpioPeriph;
-        UInt32 gpioBase;
-        UInt32 gpioPins;
+        UInt32 intNum;
+        GpioPort.Handle txPin;
+        GpioPort.Handle rxPin;
         UInt32 pinAssignRx;
         UInt32 pinAssignTx;
         UInt32 udmaChanTx;
