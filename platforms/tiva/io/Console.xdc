@@ -1,4 +1,4 @@
-package tivadaq;
+package platforms.tiva.io;
 
 import platforms.tiva.hw.UartPort;
 
