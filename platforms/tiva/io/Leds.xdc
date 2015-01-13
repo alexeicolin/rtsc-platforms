@@ -1,4 +1,4 @@
-package platforms.tiva.io;
+package tivadaq;
 
 @ModuleStartup
 module Leds {
