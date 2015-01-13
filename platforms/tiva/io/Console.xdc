@@ -2,6 +2,7 @@ package platforms.tivadaq;
 
 import platforms.tiva.UartPort;
 
+@ModuleStartup
 module Console {
     Void open();
     Void close();
