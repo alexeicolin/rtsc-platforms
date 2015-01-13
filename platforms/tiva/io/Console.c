@@ -6,8 +6,8 @@
 #include <ti/drivers/uart/UARTTiva.h>
 
 #include <platforms/tiva/hw/UartPort.h>
-#include <platforms/tiva/GpioPort.h>
-#include <platforms/tiva/GpioPeriph.h>
+#include <platforms/tiva/hw/GpioPort.h>
+#include <platforms/tiva/hw/GpioPeriph.h>
 
 #include <stdint.h>
 #include <stdbool.h>
