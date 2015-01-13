@@ -1,4 +1,4 @@
-package platforms.tiva {
+package platforms.tiva.hw {
     module PlatformInfo;
     module UartPort;
     module GpioPeriph;

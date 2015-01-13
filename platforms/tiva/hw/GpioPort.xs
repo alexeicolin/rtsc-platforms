@@ -3,8 +3,8 @@ var GpioPeriph;
 
 function module$meta$init()
 {
-    PlatformInfo = xdc.useModule('platforms.tiva.PlatformInfo');
-    GpioPeriph = xdc.useModule('platforms.tiva.GpioPeriph');
+    PlatformInfo = xdc.useModule('platforms.tiva.hw.PlatformInfo');
+    GpioPeriph = xdc.useModule('platforms.tiva.hw.GpioPeriph');
 }
 
 function instance$static$init(obj, portLetter, pin, params, mod)

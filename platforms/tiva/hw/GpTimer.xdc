@@ -1,4 +1,4 @@
-package platforms.tiva;
+package platforms.tiva.hw;
 
 module GpTimer {
 

@@ -1,4 +1,4 @@
-package platforms.tiva;
+package platforms.tiva.hw;
 
 module UartPort {
     metaonly readonly config UInt NUM_PORTS = 2;
@@ -6,8 +6,7 @@ module UartPort {
     // Human-readable map used in constructing UartPort state (datasheet p892)
     metaonly readonly config Any uartGpioPorts = [
         {letter: 'A', rxPin: 0, txPin: 1}, // UART 0
-        {letter: 'C', rxPin: 4, txPin: 5}, // UART 1
-     // {letter: 'B', rxPin: 0, txPin: 1}, // UART 1 (alternative)
+        {letter: 'B', rxPin: 0, txPin: 1}, // UART 1
         {letter: 'D', rxPin: 6, txPin: 7}, // UART 2
         {letter: 'C', rxPin: 6, txPin: 7}, // UART 3
         {letter: 'C', rxPin: 4, txPin: 5}, // UART 4

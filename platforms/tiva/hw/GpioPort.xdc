@@ -1,14 +1,14 @@
-package platforms.tiva;
+package platforms.tiva.hw;
 
-module GpioPeriph {
+module GpioPort {
 
     struct Info {
-        UInt32 periph;
-        UInt32 base;
+        GpioPeriph.Handle periph;
+        UInt8 pin;
     };
 
   instance:
-    create(/* Char */ String portLetter);
+    create(/* Char */ String portLetter, UInt8 pin);
 
     @DirectCall
     /* const */ Info *getInfo();

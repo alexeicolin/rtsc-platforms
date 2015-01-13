@@ -1,6 +1,4 @@
-package platforms.tiva;
-
-import platforms.tiva.GpioPort;
+package platforms.tiva.hw;
 
 module AdcChan {
 

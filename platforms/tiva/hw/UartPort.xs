@@ -3,8 +3,8 @@ var GpioPort;
 
 function module$meta$init()
 {
-    PlatformInfo = xdc.useModule('platforms.tiva.PlatformInfo');
-    GpioPort = xdc.useModule('platforms.tiva.GpioPort');
+    PlatformInfo = xdc.useModule('platforms.tiva.hw.PlatformInfo');
+    GpioPort = xdc.useModule('platforms.tiva.hw.GpioPort');
 }
 
 function instance$static$init(obj, portIdx, params, mod)

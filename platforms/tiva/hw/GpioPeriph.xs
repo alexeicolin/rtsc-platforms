@@ -2,7 +2,7 @@ var PlatformInfo;
 
 function module$meta$init()
 {
-    PlatformInfo = xdc.useModule('platforms.tiva.PlatformInfo');
+    PlatformInfo = xdc.useModule('platforms.tiva.hw.PlatformInfo');
 }
 
 function instance$static$init(obj, portLetter, params, mod)
