@@ -1,6 +1,6 @@
 package platforms.tiva.hw;
 
-metaonly module PlatformInfo {
+metaonly module HwAttrs {
 
     // Copied from TivaWare 2.0 headers
 

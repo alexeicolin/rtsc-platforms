@@ -1,14 +1,14 @@
-var PlatformInfo;
+var HwAttrs;
 
 function module$meta$init()
 {
-    PlatformInfo = xdc.useModule('platforms.tiva.hw.PlatformInfo');
+    HwAttrs = xdc.useModule('platforms.tiva.hw.HwAttrs');
 }
 
 function instance$static$init(obj, idx, params, mod)
 {
     obj.info = {
-        periph: PlatformInfo['SYSCTL_PERIPH_ADC' + idx],
-        base: PlatformInfo['ADC' + idx + '_BASE'],
+        periph: HwAttrs['SYSCTL_PERIPH_ADC' + idx],
+        base: HwAttrs['ADC' + idx + '_BASE'],
     };
 }

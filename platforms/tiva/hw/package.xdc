@@ -1,5 +1,5 @@
 package platforms.tiva.hw {
-    module PlatformInfo;
+    module HwAttrs;
     module UartPort;
     module GpioPeriph;
     module GpioPort;
