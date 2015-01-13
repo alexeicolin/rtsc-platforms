@@ -3,7 +3,7 @@ package platforms.tiva.io;
 import platforms.tiva.hw.GpioPort;
 
 @ModuleStartup
-module Leds {
+module Led {
     metaonly config UInt32 blinkTickPeriodMs = 500;
     config UInt32 pulseDelayIters = 100000;
 

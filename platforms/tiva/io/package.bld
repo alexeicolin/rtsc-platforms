@@ -15,7 +15,7 @@ for each (var targ in Build.targets) {
     };
 
     var srcs = [
-        "Leds.c",
+        "Led.c",
         "Console.c",
     ];
 

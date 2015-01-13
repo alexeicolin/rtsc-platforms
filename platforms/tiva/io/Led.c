@@ -11,7 +11,7 @@
 #include <driverlib/gpio.h>
 #include <driverlib/sysctl.h>
 
-#include "package/internal/Leds.xdc.h"
+#include "package/internal/Led.xdc.h"
 
 #define LED_OFF (0)
 #define LED_ON  (~0)
@@ -24,42 +24,42 @@ GPIO_Config GPIO_config[MAX_LEDS];
 
 static GPIO_HWAttrs gpioHWAttrs[MAX_LEDS];
 
-Void Leds_setLed(UInt led, Bool on)
+Void Led_setLed(UInt led, Bool on)
 {
     GPIO_write(led, on ? LED_ON : LED_OFF);
 }
 
-Void Leds_pulseLed(UInt led)
+Void Led_pulseLed(UInt led)
 {
-    Int i = Leds_pulseDelayIters;
-    Leds_setLed(led, TRUE);
+    Int i = Led_pulseDelayIters;
+    Led_setLed(led, TRUE);
     while (i--);
-    Leds_setLed(led, FALSE);
+    Led_setLed(led, FALSE);
 }
 
-Void Leds_blinkLed(UInt led, UInt32 rate)
+Void Led_blinkLed(UInt led, UInt32 rate)
 {
-    Leds_LedState *ledState = &module->ledState.elem[led];
+    Led_LedState *ledState = &module->ledState.elem[led];
     ledState->on = FALSE;
     ledState->blinkRate = rate;
 }
 
-Void Leds_blinkTick(UArg arg)
+Void Led_blinkTick(UArg arg)
 {
     Int led;
-    Leds_LedState *ledState;
+    Led_LedState *ledState;
     for (led = 0; led < module->ledState.length; ++led) {
         ledState = &module->ledState.elem[led];
         if (ledState->blinkRate &&
             module->blinkTicks % ledState->blinkRate == 0) {
             ledState->on = !ledState->on;
-            Leds_setLed(led, ledState->on);
+            Led_setLed(led, ledState->on);
         }
     }
     module->blinkTicks++;
 }
 
-Int Leds_Module_startup(Int state)
+Int Led_Module_startup(Int state)
 {
     UInt led;
     const GpioPort_Info *gpioPort;

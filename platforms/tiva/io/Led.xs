@@ -11,7 +11,7 @@ function module$meta$init()
 
 function module$static$init(state, mod)
 {
-    var blinkClockObj = Clock.create('&Leds_blinkTick', 1);
+    var blinkClockObj = Clock.create('&Led_blinkTick', 1);
     blinkClockObj.period = msecToClockTicks(mod.blinkTickPeriodMs);
     blinkClockObj.startFlag = true;
 
