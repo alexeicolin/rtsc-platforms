@@ -1,6 +1,6 @@
-package platforms.tiva.io;
+package platforms.tivadaq;
 
-import platforms.tiva.hw.UartPort;
+import platforms.tiva.UartPort;
 
 module Console {
     Void open();
