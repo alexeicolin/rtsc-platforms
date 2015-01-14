@@ -1,1 +1,1 @@
-Platform constants (e.g. peripheral addresses) for use from XDC modules.
+Hardware attributes and other platform support for use from RTSC modules.
