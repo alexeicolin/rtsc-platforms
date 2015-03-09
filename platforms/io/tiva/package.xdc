@@ -1,4 +1,4 @@
-package platforms.tiva.io {
+package platforms.io.tiva {
     module Led;
     module Console;
 };
