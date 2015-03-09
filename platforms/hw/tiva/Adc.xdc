@@ -1,22 +1,14 @@
-package platforms.tiva.hw;
+package platforms.hw.tiva;
 
-module GpTimer {
-
-    enum Half {
-        Half_A,
-        Half_B
-        // TODO: suppoort Half_BOTH
-    };
+module Adc {
 
     struct Info {
         UInt32 base;
         UInt32 periph;
-        UInt32 half;
-        UInt32 cfg;
     };
 
   instance:
-    create(UInt8 idx, Half half);
+    create(UInt8 idx);
 
     @DirectCall
     /* const */ Info *getInfo();

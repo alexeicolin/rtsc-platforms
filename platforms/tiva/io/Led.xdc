@@ -1,6 +1,6 @@
 package platforms.tiva.io;
 
-import platforms.tiva.hw.GpioPort;
+import platforms.hw.tiva.GpioPort;
 
 @ModuleStartup
 module Led {

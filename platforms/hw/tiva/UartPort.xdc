@@ -1,4 +1,4 @@
-package platforms.tiva.hw;
+package platforms.hw.tiva;
 
 module UartPort {
     metaonly readonly config UInt NUM_PORTS = 2;

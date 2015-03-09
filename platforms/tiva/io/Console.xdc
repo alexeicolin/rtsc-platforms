@@ -1,6 +1,6 @@
 package platforms.tiva.io;
 
-import platforms.tiva.hw.UartPort;
+import platforms.hw.tiva.UartPort;
 
 @ModuleStartup
 module Console {

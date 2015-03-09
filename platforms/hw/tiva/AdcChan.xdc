@@ -1,4 +1,4 @@
-package platforms.tiva.hw;
+package platforms.hw.tiva;
 
 module AdcChan {
 

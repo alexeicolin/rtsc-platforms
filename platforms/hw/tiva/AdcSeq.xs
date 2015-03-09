@@ -2,7 +2,7 @@ var HwAttrs;
 
 function module$meta$init()
 {
-    HwAttrs = xdc.useModule('platforms.tiva.hw.HwAttrs');
+    HwAttrs = xdc.useModule('platforms.hw.tiva.HwAttrs');
 }
 
 function instance$static$init(obj, adcIdx, seqIdx, params, mod)
