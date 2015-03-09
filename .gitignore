@@ -1,0 +1,9 @@
+.*.swo
+.*.swp
+
+*.mak
+
+.dlls
+.executables
+.libraries
+.interfaces
