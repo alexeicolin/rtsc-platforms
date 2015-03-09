@@ -13,7 +13,14 @@ then
     export PATH=$PATH:$XDCTOOLS_PATH
 fi
 
-unset XDCPATH
+TIRTOS_DIR="/opt/ti/tirtos/tirtos_tivac_2_00_01_23"
+BIOS_DIR="$TIRTOS_DIR/products/bios_6_40_01_15"
 
 # gnu.targets.*
-XDCPATH="$XDCPATH;/opt/ti/tirtos/tirtos_tivac_2_00_01_23/products/bios_6_40_01_15/packages"
+unset XDCPATH
+XDCPATH="$BIOS_DIR/packages"
+XDCPATH="$XDCPATH;$TIRTOS_DIR/packages"
+
+export XDCPATH
+
+export TIVAWARE_INSTALLATION_DIR="$TIRTOS_DIR/products/TivaWare_C_Series-2.1.0.12573c"
