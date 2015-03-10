@@ -1,4 +1,4 @@
-package platforms.io.tiva;
+package platforms.io.console.tiva;
 
 import platforms.hw.tiva.UartPort;
 

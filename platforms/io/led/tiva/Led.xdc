@@ -1,4 +1,4 @@
-package platforms.io.tiva;
+package platforms.io.led.tiva;
 
 import platforms.hw.tiva.GpioPort;
 
