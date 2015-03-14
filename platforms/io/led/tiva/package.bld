@@ -16,6 +16,7 @@ for each (var targ in Build.targets) {
 
     var srcs = [
         "Led.c",
+        "Blink.c",
     ];
 
     var lib = Pkg.addLibrary("lib/" + Pkg.name, targ)

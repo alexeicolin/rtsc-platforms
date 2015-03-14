@@ -37,36 +37,14 @@ Void Led_pulseLed(UInt led)
     Led_setLed(led, FALSE);
 }
 
-Void Led_blinkLed(UInt led, UInt32 rate)
-{
-    Led_LedState *ledState = &module->ledState.elem[led];
-    ledState->on = FALSE;
-    ledState->blinkRate = rate;
-}
-
-Void Led_blinkTick(UArg arg)
-{
-    Int led;
-    Led_LedState *ledState;
-    for (led = 0; led < module->ledState.length; ++led) {
-        ledState = &module->ledState.elem[led];
-        if (ledState->blinkRate &&
-            module->blinkTicks % ledState->blinkRate == 0) {
-            ledState->on = !ledState->on;
-            Led_setLed(led, ledState->on);
-        }
-    }
-    module->blinkTicks++;
-}
-
 Int Led_Module_startup(Int state)
 {
     UInt led;
     const GpioPort_Info *gpioPort;
     const GpioPeriph_Info *gpioPeriph;
 
-    for (led = 0; led < module->ledState.length; ++led) {
-        gpioPort = GpioPort_getInfo(module->ledState.elem[led].gpioPort);
+    for (led = 0; led < module->gpioPorts.length; ++led) {
+        gpioPort = GpioPort_getInfo(module->gpioPorts.elem[led]);
         gpioPeriph = GpioPeriph_getInfo(gpioPort->periph);
 
         // Looks like this cannot be initialized in meta domain because
@@ -83,7 +61,7 @@ Int Led_Module_startup(Int state)
 
     GPIO_init(); /* Once GPIO_init is called, GPIO_config cannot be changed */
 
-    for (led = 0; led < module->ledState.length; ++led)
+    for (led = 0; led < module->gpioPorts.length; ++led)
         GPIO_write(led, LED_OFF);
 
     return Startup_DONE;
