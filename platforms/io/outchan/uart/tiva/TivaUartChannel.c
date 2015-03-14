@@ -89,7 +89,20 @@ Int TivaUartChannel_Module_startup(Int state) {
         UART_Params_init(&uartParams);
         uartParams.baudRate = TivaUartChannel_eventUartBaudRate;
         uartParams.readEcho = UART_ECHO_OFF;
-        uartParams.writeDataMode = UART_DATA_BINARY;
+
+        /* This should be done statically, but, UART.xdc is weird:
+         * it doesn't compile when used. */
+        switch (TivaUartChannel_eventUartDataMode) {
+            case TivaUartChannel_DATA_MODE_TEXT:
+                uartParams.writeDataMode = UART_DATA_TEXT;
+                break;
+            case TivaUartChannel_DATA_MODE_BINARY:
+                uartParams.writeDataMode = UART_DATA_BINARY;
+                break;
+            default:
+                System_abort("Invalid UART data mode\n");
+        }
+
         module->eventUartPort = UART_open(TivaUartChannel_eventUartIndex, &uartParams);
 
         if (!module->eventUartPort)
