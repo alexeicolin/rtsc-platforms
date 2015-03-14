@@ -15,7 +15,7 @@
 #include <driverlib/sysctl.h>
 #include <driverlib/pin_map.h>
 
-#include "package/internal/TivaUartChannel.xdc.h"
+#include "package/internal/UartChannel.xdc.h"
 
 #define UART_COUNT 2
 
@@ -43,7 +43,7 @@ const UART_Config UART_config[] = {
     {NULL, NULL, NULL}
 };
 
-Int TivaUartChannel_Module_startup(Int state) {
+Int UartChannel_Module_startup(Int state) {
     UART_Params uartParams;
 
     /* Initialize peripherals */
@@ -74,36 +74,36 @@ Int TivaUartChannel_Module_startup(Int state) {
     /* Open ports */
 
     UART_Params_init(&uartParams);
-    uartParams.baudRate = TivaUartChannel_sysUartBaudRate;
+    uartParams.baudRate = UartChannel_sysUartBaudRate;
     uartParams.readEcho = UART_ECHO_OFF;
     uartParams.writeDataMode = UART_DATA_TEXT;
-    module->sysUartPort = UART_open(TivaUartChannel_sysUartIndex, &uartParams);
+    module->sysUartPort = UART_open(UartChannel_sysUartIndex, &uartParams);
 
     if (!module->sysUartPort)
         System_abort("Failed to open sys UART\n");
 
-    if (TivaUartChannel_eventUartIndex == TivaUartChannel_sysUartIndex) {
+    if (UartChannel_eventUartIndex == UartChannel_sysUartIndex) {
         module->eventUartPort = module->sysUartPort;
     } else {
 
         UART_Params_init(&uartParams);
-        uartParams.baudRate = TivaUartChannel_eventUartBaudRate;
+        uartParams.baudRate = UartChannel_eventUartBaudRate;
         uartParams.readEcho = UART_ECHO_OFF;
 
         /* This should be done statically, but, UART.xdc is weird:
          * it doesn't compile when used. */
-        switch (TivaUartChannel_eventUartDataMode) {
-            case TivaUartChannel_DATA_MODE_TEXT:
+        switch (UartChannel_eventUartDataMode) {
+            case UartChannel_DATA_MODE_TEXT:
                 uartParams.writeDataMode = UART_DATA_TEXT;
                 break;
-            case TivaUartChannel_DATA_MODE_BINARY:
+            case UartChannel_DATA_MODE_BINARY:
                 uartParams.writeDataMode = UART_DATA_BINARY;
                 break;
             default:
                 System_abort("Invalid UART data mode\n");
         }
 
-        module->eventUartPort = UART_open(TivaUartChannel_eventUartIndex, &uartParams);
+        module->eventUartPort = UART_open(UartChannel_eventUartIndex, &uartParams);
 
         if (!module->eventUartPort)
             System_abort("Failed to open event UART\n");
@@ -112,12 +112,12 @@ Int TivaUartChannel_Module_startup(Int state) {
     return Startup_DONE;
 }
 
-Void TivaUartChannel_outputStdOut(const Char *buf, Int size) {
-    if (TivaUartChannel_Module_startupDone())
+Void UartChannel_outputStdOut(const Char *buf, Int size) {
+    if (UartChannel_Module_startupDone())
         UART_writePolling(module->sysUartPort, buf, size);
 }
 
-Void TivaUartChannel_outputEventLog(const Char *buf, Int size) {
-    if (TivaUartChannel_Module_startupDone())
+Void UartChannel_outputEventLog(const Char *buf, Int size) {
+    if (UartChannel_Module_startupDone())
         UART_writePolling(module->eventUartPort, buf, size);
 }

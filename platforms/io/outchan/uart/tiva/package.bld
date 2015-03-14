@@ -13,5 +13,5 @@ for each (var targ in Build.targets) {
     };
 
     var lib = Pkg.addLibrary("lib/" + Pkg.name, targ);
-    lib.addObjects(["TivaUartChannel.c"], libAttrs);
+    lib.addObjects(["UartChannel.c"], libAttrs);
 }

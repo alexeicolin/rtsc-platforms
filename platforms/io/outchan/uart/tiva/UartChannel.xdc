@@ -3,7 +3,7 @@ package platforms.io.outchan.uart.tiva;
 import platforms.io.outchan.IOutputChannel;
 
 @ModuleStartup
-module TivaUartChannel inherits IOutputChannel
+module UartChannel inherits IOutputChannel
 {
     /* Same as UART.UART_DataMode, but UART.xdc is weird: when used,
      * it seems to get parsed ok, but fails to compile. */
