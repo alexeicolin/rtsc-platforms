@@ -16,7 +16,7 @@ function module$meta$init()
 function module$use()
 {
     SysMin.bufSize = this.bufferSize;
-    SysMin.outputFxn = '&platforms_tiva_io_Console_output';
+    SysMin.outputFxn = '&platforms_io_console_tiva_Console_output';
 }
 
 function module$static$init(state, mod)
