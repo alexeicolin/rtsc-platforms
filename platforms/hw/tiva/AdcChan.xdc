@@ -2,15 +2,18 @@ package platforms.hw.tiva;
 
 module AdcChan {
 
+    readonly config UInt32 MAX_CHANNEL_PINS = 2;
+
     enum Type {
-        Type_ANALOG,
+        Type_ANALOG_SINGLE,
+        Type_ANALOG_DIFF,
         Type_TEMPERATURE
     };
 
     struct Info {
         Type type;
         UInt32 ctlValue;
-        GpioPort.Handle gpioPort;
+        GpioPort.Handle gpioPorts[MAX_CHANNEL_PINS];
     };
 
     // Map: ADC channel -> GPIO port, pin (datasheet p798)
@@ -36,6 +39,7 @@ module AdcChan {
     /* const */ Info *getInfo();
 
   internal:
+
     struct Instance_State {
         /* const */ Info info;
     };
